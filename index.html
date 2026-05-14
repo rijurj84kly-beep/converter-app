@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoinExchange</title>
+    <meta name="description" content="A dynamic and premium cryptocurrency and fiat converter with real-time rates.">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="app-container">
+        <header>
+            <div class="logo">
+                <span class="icon"> ₿</span>
+                <h1>CoinExchange</h1>
+            </div>
+            <button id="theme-toggle" class="theme-btn" title="Toggle Dark Mode">
+                <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+                <svg id="sun-icon" class="hidden" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+            </button>
+        </header>
+
+        <main>
+            <div class="converter-card">
+                <div class="input-section">
+                    <label for="amount">Amount</label>
+                    <input type="number" id="amount" placeholder="0.00" value="1" min="0" step="any">
+                </div>
+
+                <div class="currency-section">
+                    <div class="select-group">
+                        <label for="from">From</label>
+                        <select id="from"></select>
+                    </div>
+
+                    <button id="swap-btn" class="swap-btn" onclick="swap()" title="Swap currencies">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="16 3 21 3 21 8"></polyline>
+                            <line x1="4" y1="14" x2="21" y2="3"></line>
+                            <polyline points="8 21 3 21 3 16"></polyline>
+                            <line x1="20" y1="10" x2="3" y2="21"></line>
+                        </svg>
+                    </button>
+
+                    <div class="select-group">
+                        <label for="to">To</label>
+                        <select id="to"></select>
+                    </div>
+                </div>
+
+                <div class="info-section">
+                    <div id="loading" class="hidden">
+                        <span class="spinner"></span> Loading rate...
+                    </div>
+                    <div id="error" class="error-msg hidden"></div>
+                    <div id="live-rate" class="live-rate"></div>
+                </div>
+
+                <div class="result-section">
+                    <h2 id="result">0.00</h2>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
